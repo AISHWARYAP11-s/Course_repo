@@ -1,0 +1,22 @@
+
+#include <stdio.h>
+#include <stdint.h>
+ 
+int main() {
+    float input =  -300.0f;  // Example 32-bit float
+    union {
+        float f;
+        uint8_t bytes[4];
+    } converter;
+ 
+    converter.f = input;
+ 
+    printf("Float: %f\n", input);
+    printf("Bytes: %u %u %u %u\n", 
+           converter.bytes[0], 
+           converter.bytes[1], 
+           converter.bytes[2], 
+           converter.bytes[3]);
+ 
+    return 0;
+}
